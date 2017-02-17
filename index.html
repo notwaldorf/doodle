@@ -12,6 +12,7 @@
 
       #container {
         line-height: 0;
+        text-align: center;
       }
       .box {
         width: 15px;
@@ -26,16 +27,36 @@
         transition: background-color 0s ease-in;
         background-color: black;
       }
+
+      .box.blue:hover {
+        background-color: #0074D9;
+      }
+      .box.teal:hover {
+        background-color: #39CCCC;
+      }
+      .box.yellow:hover {
+        background-color: #FFDC00;
+      }
+      .box.orange:hover {
+        background-color: #FF851B;
+      }
+      .box.pink:hover {
+        background-color: #E91E63;
+      }
     </style>
   </head>
   <body>
-    <p>Press <b>x</b> to reset the trace <p>
-    <div id="container">
-    </div>
+    <p style="text-align:center;">
+      Press <b>x</b> to reset the trace, <b>b</b> to cycle through colours
+    <p>
+    <div id="container"></div>
   </body>
 
   <script>
     var side = 40;
+    var colors = ['', 'blue', 'teal', 'yellow', 'orange', 'pink'];
+    var activeColor = 0;
+
     for (var i = 0; i < side; i++) {
       for (var j = 0; j < side; j++) {
         var box = document.createElement('div');
@@ -47,11 +68,17 @@
 
     window.onkeyup = function(e) {
       var key = e.keyCode ? e.keyCode : e.which;
+
       if (key == 88) {  // x
-        var all = container.querySelectorAll('.box');
         container.style.display = 'none';
         container.offsetHeight;
-        container.style.display = 'inline-block';
+        container.style.display = 'block';
+      } else if (key == 67) {  // c
+        var all = container.querySelectorAll('.box');
+        activeColor++;
+        for (var i = 0; i < all.length; i++) {
+          all[i].className = 'box ' + colors[activeColor];
+        }
       }
     }
 
