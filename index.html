@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pixel board</title>
+
+    <style>
+      body {
+        background: #bbb;
+        font-family: sans-serif;
+      }
+      .box {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        margin: 0 2px;
+        background-color: white;
+        transition: background-color 10s ease-out;
+
+      }
+      .box:hover {
+        transition: background-color 0s ease-in;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Press <b>x</b> to reset the trace <p>
+    <div id="container">
+    </div>
+  </body>
+
+  <script>
+    var side = 20;
+    for (var i = 0; i < side; i++) {
+      for (var j = 0; j < side; j++) {
+        var box = document.createElement('div');
+        box.className = 'box';
+        container.appendChild(box);
+      }
+      container.appendChild(document.createElement('br'));
+    }
+
+    window.onkeyup = function(e) {
+      var key = e.keyCode ? e.keyCode : e.which;
+
+      console.log(key);
+      if (key == 88) {  // x
+
+        var all = container.querySelectorAll('.box');
+        console.log(all.length);
+        for (var i = 0; i < all.length; i++) {
+          // Mad hacks to trigger a repaint >.<
+          all[i].style.display = 'none';
+          all[i].offsetHeight;
+          all[i].style.display = 'inline-block';
+        }
+      }
+    }
+
+  </script>
+
+</html>
