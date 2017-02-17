@@ -9,11 +9,15 @@
         background: #bbb;
         font-family: sans-serif;
       }
+
+      #container {
+        line-height: 0;
+      }
       .box {
         width: 15px;
         height: 15px;
         display: inline-block;
-        margin: 0 2px;
+        border: 1px solid #bbb;
         background-color: white;
         transition: background-color 10s ease-out;
 
@@ -45,13 +49,9 @@
       var key = e.keyCode ? e.keyCode : e.which;
       if (key == 88) {  // x
         var all = container.querySelectorAll('.box');
-        
-        for (var i = 0; i < all.length; i++) {
-          // Mad hacks to trigger a repaint >.<
-          all[i].style.display = 'none';
-          all[i].offsetHeight;
-          all[i].style.display = 'inline-block';
-        }
+        container.style.display = 'none';
+        container.offsetHeight;
+        container.style.display = 'inline-block';
       }
     }
 
