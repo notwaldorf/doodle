@@ -10,8 +10,8 @@
         font-family: sans-serif;
       }
       .box {
-        width: 30px;
-        height: 30px;
+        width: 15px;
+        height: 15px;
         display: inline-block;
         margin: 0 2px;
         background-color: white;
@@ -31,7 +31,7 @@
   </body>
 
   <script>
-    var side = 20;
+    var side = 40;
     for (var i = 0; i < side; i++) {
       for (var j = 0; j < side; j++) {
         var box = document.createElement('div');
@@ -43,12 +43,9 @@
 
     window.onkeyup = function(e) {
       var key = e.keyCode ? e.keyCode : e.which;
-
-      console.log(key);
       if (key == 88) {  // x
-
         var all = container.querySelectorAll('.box');
-        console.log(all.length);
+        
         for (var i = 0; i < all.length; i++) {
           // Mad hacks to trigger a repaint >.<
           all[i].style.display = 'none';
