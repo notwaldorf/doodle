@@ -20,39 +20,28 @@
     var colorsHex = ['black', '#0074D9', '#39CCCC', '#FFDC00', '#FF851B', '#E91E63'];
     var activeColor = 0;
 
-    window.onresize = boxItUp;
-    addColorContainer();
-    boxItUp();
+    window.onresize = redrawBoard;
+    window.onkeyup = dealWithKeyboardMash;
+    drawPreamble();
+    redrawBoard();
 
-    window.onkeyup = function(e) {
+    function dealWithKeyboardMash(e) {
       var key = e.keyCode ? e.keyCode : e.which;
-
       if (key == 88) {  // x
-        container.style.display = 'none';
-        container.offsetHeight;
-        container.style.display = 'block';
+        resetTraces();
       } else if (key == 67) {  // c
-        var all = container.querySelectorAll('.box');
-        var colorBoxes = colorsContainer.querySelectorAll('div');
-
-        colorBoxes[activeColor].className = '';
-        activeColor = (activeColor === colors.length - 1) ? 0 : activeColor + 1;
-        colorBoxes[activeColor].className = 'active';
-
-        for (var i = 0; i < all.length; i++) {
-          all[i].className = 'box ' + colors[activeColor];
-        }
+        cycleColour();
       }
     }
 
-    function boxItUp() {
+    function redrawBoard() {
       var pixelSize = 16;
       var preambleSize = preamble.getBoundingClientRect()
       var topPadding = preambleSize.height + preambleSize.top;
       var width = Math.floor((window.innerWidth) / pixelSize);
       var height = Math.floor((window.innerHeight - topPadding) / pixelSize);
 
-      // Pixels.
+      // Draw a grid of pixels.
       container.innerHTML = '';
       for (var i = 0; i < height; i++) {
         for (var j = 0; j < width; j++) {
@@ -60,12 +49,13 @@
           box.className = 'box black';
           container.appendChild(box);
         }
+        // Eh why not. 
         container.appendChild(document.createElement('br'));
       }
     }
 
-    function addColorContainer() {
-      // Active color.
+    // Lay out the "available colours" container.
+    function drawPreamble() {
       for (var i = 0; i < colors.length; i++) {
         var box = document.createElement('div');
         box.style.backgroundColor = colorsHex[i];
@@ -73,6 +63,28 @@
           box.className = 'active';
         }
         colorsContainer.appendChild(box);
+      }
+    }
+
+    // Trigger a repaint to reset the animations.
+    function resetTraces() {
+      container.style.display = 'none';
+      container.offsetHeight;
+      container.style.display = 'block';
+    }
+
+    function cycleColour() {
+      var all = container.querySelectorAll('.box');
+      var colorBoxes = colorsContainer.querySelectorAll('div');
+
+      // Highight the next active colour.
+      colorBoxes[activeColor].className = '';
+      activeColor = (activeColor === colors.length - 1) ? 0 : activeColor + 1;
+      colorBoxes[activeColor].className = 'active';
+
+      // Apply it to all the pixels.
+      for (var i = 0; i < all.length; i++) {
+        all[i].className = 'box ' + colors[activeColor];
       }
     }
 
