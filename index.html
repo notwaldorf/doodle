@@ -6,22 +6,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p style="text-align:center;">
+    <div id="preamble" style="text-align:center;">
       Press <b>x</b> to reset the trace, <b>c</b> to cycle through colours.
       If you hold the mouse down and move, you won't leave a trace.
       <div id="colorsContainer"></div>
-    <p>
+      <br><br>
+    </div>
     <div id="container"></div>
   </body>
 
   <script>
-    var side = 40;
     var colors = ['black', 'blue', 'teal', 'yellow', 'orange', 'pink'];
     var colorsHex = ['black', '#0074D9', '#39CCCC', '#FFDC00', '#FF851B', '#E91E63'];
     var activeColor = 0;
 
+    window.onresize = boxItUp;
+    addColorContainer();
     boxItUp();
-
 
     window.onkeyup = function(e) {
       var key = e.keyCode ? e.keyCode : e.which;
@@ -45,16 +46,25 @@
     }
 
     function boxItUp() {
+      var pixelSize = 16;
+      var preambleSize = preamble.getBoundingClientRect()
+      var topPadding = preambleSize.height + preambleSize.top;
+      var width = Math.floor((window.innerWidth) / pixelSize);
+      var height = Math.floor((window.innerHeight - topPadding) / pixelSize);
+
       // Pixels.
-      for (var i = 0; i < side; i++) {
-        for (var j = 0; j < side; j++) {
+      container.innerHTML = '';
+      for (var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
           var box = document.createElement('div');
           box.className = 'box black';
           container.appendChild(box);
         }
         container.appendChild(document.createElement('br'));
       }
+    }
 
+    function addColorContainer() {
       // Active color.
       for (var i = 0; i < colors.length; i++) {
         var box = document.createElement('div');

@@ -4,6 +4,7 @@ body {
 }
 
 #container, #colorsContainer {
+  box-sizing: border-box;
   line-height: 0;
   text-align: center;
 }
@@ -21,6 +22,7 @@ body {
 }
 
 .box {
+  box-sizing: border-box;
   width: 15px;
   height: 15px;
   display: inline-block;
