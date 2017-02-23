@@ -11,6 +11,8 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  /* This page should never scroll, and the bounce scroll on iOS resets the animations */
+  position: fixed;
 }
 
 [hidden] {
