@@ -105,7 +105,7 @@ h1 {
 #colorsContainer div {
   display: inline-block;
   box-sizing: border-box;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ h1 {
   background-color: #f9f9f9;
   transition: background-color ease-out;
   transition-duration: inherit;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   -webkit-user-select: none;
   -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
