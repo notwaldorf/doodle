@@ -67,6 +67,9 @@
     window.onkeyup = dealWithKeyboardMash;
     decay.addEventListener('input', updateDecay);
     pixelSize.addEventListener('input', updatePixelSize);
+    colorsContainer.addEventListener('click', function(event) {
+      cycleColour(event.target.dataset.index);
+    })
 
     drawPreamble();
     redrawBoard();
@@ -120,6 +123,8 @@
         var box = document.createElement('div');
         box.style.backgroundColor = COLORS[i].hex;
         box.style.width = box.style.height = boxWidth;
+        box.dataset.index = i;
+        box.tabindex = 1;
         if (i == 0) {
           box.className = 'active';
         }
@@ -134,13 +139,14 @@
       container.style.display = 'block';
     }
 
-    function cycleColour() {
+    function cycleColour(value) {
       var all = container.querySelectorAll('.box');
       var colorBoxes = colorsContainer.querySelectorAll('div');
+      var newOne = value || (parseInt(activeColor) + 1);
 
-      // Highight the next active colour.
+      // Highlight the next active colour.
       colorBoxes[activeColor].className = '';
-      activeColor = (activeColor === COLORS.length - 1) ? 0 : activeColor + 1;
+      activeColor = (activeColor === COLORS.length - 1) ? 0 : newOne;
       colorBoxes[activeColor].className = 'active';
 
       // Apply it to all the pixels.
