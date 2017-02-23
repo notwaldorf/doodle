@@ -11,6 +11,18 @@
       If you hold the mouse down and move, you won't leave a trace.
       <div id="colorsContainer"></div>
       <br><br>
+      <div>
+        <span class="slider-title">Persistence</span>
+        <input id="decay"
+            type="range" min="1" max="30" step="1" value="10">
+        <span id="decayDisplay" class="slider-value">10s</span>
+
+        <span class="slider-title">Pixel size</span>
+        <input id="pixelSize"
+            type="range" min="1" max="50" step="1" value="15">
+        <span id="pixelSizeDisplay" class="slider-value">15px</span>
+      </div>
+      <br><br>
     </div>
     <div id="container"></div>
   </body>
@@ -22,8 +34,12 @@
 
     window.onresize = redrawBoard;
     window.onkeyup = dealWithKeyboardMash;
+    decay.addEventListener('input', updateDecay);
+    pixelSize.addEventListener('input', updatePixelSize);
+
     drawPreamble();
     redrawBoard();
+    focusBoard();
 
     function dealWithKeyboardMash(e) {
       var key = e.keyCode ? e.keyCode : e.which;
@@ -35,11 +51,11 @@
     }
 
     function redrawBoard() {
-      var pixelSize = 16;
+      var size = 16; //pixelSize.value + 1;
       var preambleSize = preamble.getBoundingClientRect()
       var topPadding = preambleSize.height + preambleSize.top;
-      var width = Math.floor((window.innerWidth) / pixelSize);
-      var height = Math.floor((window.innerHeight - topPadding) / pixelSize);
+      var width = Math.floor((window.innerWidth) / size);
+      var height = Math.floor((window.innerHeight - topPadding) / size);
 
       // Draw a grid of pixels.
       container.innerHTML = '';
@@ -49,7 +65,7 @@
           box.className = 'box black';
           container.appendChild(box);
         }
-        // Eh why not. 
+        // Eh why not.
         container.appendChild(document.createElement('br'));
       }
     }
@@ -88,6 +104,21 @@
       }
     }
 
+    function focusBoard() {
+      container.focus();
+    }
+
+    function updateDecay() {
+      decayDisplay.textContent = decay.value + 's';
+      container.style.transitionDuration = decay.value + 's';
+      focusBoard();
+    }
+
+    function updatePixelSize() {
+      // decayDisplay.textContent = decay.value + 's';
+      // container.style.transitionDuration = decay.value + 's';
+      // focusBoard();
+    }
   </script>
 
 </html>
