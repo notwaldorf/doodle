@@ -185,10 +185,11 @@
 
     function updateCycle() {
       cycleDisplay.textContent = cycle.value + 's';
-      if (cycle.value === 0)
+      if (cycle.value === 0) {
         stop();
-      else if (requestId == -1)
+      } else if (requestId == -1) {
         start();
+      }
     }
 
     var requestId = -1;
@@ -196,8 +197,12 @@
 
     function animate() {
       setTimeout(function() {
-        cycleColour();
-        requestId = window.requestAnimationFrame(animate);
+        if (cycle.value == 0) {
+          stop();
+        } else {
+          cycleColour();
+          requestId = window.requestAnimationFrame(animate);
+        }
       }, cycle.value * 1000);
     }
     function start() {
