@@ -19,11 +19,12 @@ body {
 
 h1 {
   color: #E91E63;
-  font-size: 90px;
+  font-size: 70px;
   line-height: 50px;
-  font-family: 'Bilbo Swash Caps', cursive;
+  font-family: 'Pacifico', cursive;
   padding: 0;
   margin: 0;
+  font-weight: 100;
 }
 
 /*
