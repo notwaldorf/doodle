@@ -95,6 +95,7 @@ h1 {
 #colorsContainer div {
   display: inline-block;
   box-sizing: border-box;
+  border-radius: 50%;
 }
 
 #colorsContainer div.active {
