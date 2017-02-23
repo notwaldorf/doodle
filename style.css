@@ -92,6 +92,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(1.6);
 }
 .slider-value {
+  display: inline-block; /* or else you can't size it */
   position: relative;
   color: white;
   line-height: 20px;
@@ -100,6 +101,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   background: #E91E63;
   padding: 5px 10px;
   margin-left: 8px;
+  min-width: 30px;
 }
 /* Pointy arrow bit */
 .slider-value:after {
