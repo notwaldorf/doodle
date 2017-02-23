@@ -76,7 +76,22 @@
 
     colorsContainer.addEventListener('click', function(event) {
       cycleColour(event.target.dataset.index);
-    })
+    });
+
+    // Ok, so. On mobile we simulate hover.
+    container.addEventListener('touchmove', function(event) {
+      var touch = event.touches[0];
+      var target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+      // If the target actually changes, activate it and fade out the old one.
+      // Otherwise, we're just hovering inside the same target.
+      if (target !== window.__previousTarget) {
+        if (window.__previousTarget)
+          window.__previousTarget.classList.remove('active');
+        target.classList.add('active');
+        window.__previousTarget = target;
+      }
+    });
 
     drawPreamble();
     redrawBoard();
