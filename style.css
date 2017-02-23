@@ -29,11 +29,9 @@ html, body {
   font-size: 15px;
   line-height: 1.5;
   color: #263238;
-  justify-content: flex-end;
 }
 
 h1 {
-  flex-grow: 1;
   color: #E91E63;
   font-family: 'Pacifico', cursive;
   font-size: 70px;
@@ -41,19 +39,7 @@ h1 {
   padding: 0;
   margin: 0;
   font-weight: 100;
-  vertical-align: middle;
   text-align: center;
-}
-
-/* I'm using media queries like a hack, look away! */
-@media (max-width: 500px) {
-  h1 {
-    font-size: 60px;
-  }
-  .preamble {
-    padding: 10px 10px 0 10px;
-    font-size: 13px;
-  }
 }
 
 @media (max-width: 350px) {
@@ -65,11 +51,12 @@ h1 {
   }
 }
 
-/* You prolly don't need this on mobile. */
-@media (max-width: 600px) {
-  .extra-help {
-    display: none !important;
-  }
+a:link, a:visited {
+  color: #E91E63;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 /*
@@ -81,14 +68,9 @@ h1 {
   justify-content: space-between;
 }
 
-.wrap-end {
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-#settings {
-  margin-left: 10px;
-  text-align: right;
+.preamble-text {
+  margin: 20px 0;
+  text-align: center;
 }
 
 #container, #colorsContainer {
@@ -200,7 +182,27 @@ input[type="range"]::-webkit-slider-thumb:focus {
 input[type="range"]::-moz-range-thumb:focus {
   transform: scale(1.4);
 }
-.slider-value, .slider-title {
+
+.slider-wrapper {
+  min-width: 100px;
+}
+.slider-value {
   display: inline-block;
-  min-width: 35px;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: #E91E63;
+  cursor: pointer;
+  fill: #E91E63;
+  stroke: transparent;
+  box-sizing: border-box;
+  padding: 4px;
+  height: 30px;
+  width: 30px;
+  vertical-align: super;
+  text-align: center;
 }

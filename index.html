@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chill.</title>
+    <title>doodle</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,34 +10,44 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
   <body>
-    <div id="preamble" class="preamble horizontal">
-      <h1>chill.</h1>
+    <div id="preamble" class="preamble">
+      <h1>
+        <span>doodle</span>
+        <button onclick="toggleSettings()">
+          <svg height="24" width="24" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"></path></svg>
+        </button>
+        <button onclick="toggleWhat()">
+          <svg height="24" width="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg>
+        </button>
+      </h1>
 
-      <div id="settings">
-        <div><b>X</b> resets, <b>C</b> changes the colour<span class="extra-help">, <b>V</b> toggles the settings</span></div>
-        <!-- <b>V</b> toggles the settings. -->
-
-        <div class="wrap-end">
-          <div>
-            <span class="slider-title">decay</span>
+      <div id="what" class="preamble-text" hidden>
+        There's this thing called a Buddha board, which is a weird surface you paint on
+        with water. As time passes, the water evaporates and your doodle
+        dissapears. This is that, but on the web and with pixels.<br><br>
+        Made with 👾 by <a href="https://twitter.com/notwaldorf">Monica</a>. 👀
+        this on <a href="https://github.com/notwaldorf/pixel-board">GitHub</a>.
+      </div>
+      <div id="settings" class="preamble-text" hidden>
+        Press: <b>X</b> to reset the doodle, <b>C</b> to change the active colour.
+        <div class="horizontal">
+          <div class="slider-wrapper">
+            <span class="slider-title">decay (<span id="decayDisplay" class="slider-value">10s</span>)</span>
             <input id="decay" type="range" min="1" max="30" step="1" value="10">
-            <span id="decayDisplay" class="slider-value">10s</span>
           </div>
-          <div>
-            <span class="slider-title">size</span>
+          <div class="slider-wrapper">
+            <span class="slider-title">size (<span id="pixelSizeDisplay" class="slider-value">16px</span>)</span>
             <input id="pixelSize" type="range" min="11" max="90" step="1" value="16">
-            <span id="pixelSizeDisplay" class="slider-value">16px</span>
           </div>
-          <div>
-            <span class="slider-title">colour loop</span>
+          <div class="slider-wrapper">
+            <span class="slider-title">colour loop (<span id="cycleDisplay" class="slider-value">0s</span>)</span>
             <input id="cycle" type="range" min="0" max="5" step="0.1" value="0">
-            <span id="cycleDisplay" class="slider-value">0s</span>
           </div>
         </div>
       </div>
     </div>
-    <div id="colorsContainer"></div>
 
+    <div id="colorsContainer"></div>
     <div id="container"></div>
   </body>
 
@@ -178,7 +188,12 @@
     }
 
     function toggleSettings() {
-      preamble.hidden = !preamble.hidden;
+      settings.hidden = !settings.hidden;
+      redrawBoard();
+    }
+
+    function toggleWhat() {
+      what.hidden = !what.hidden;
       redrawBoard();
     }
 
