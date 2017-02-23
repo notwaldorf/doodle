@@ -26,8 +26,10 @@ html, body {
   padding-top: 10px;
   align-items: center;
   padding: 20px 20px 0 20px;
+  font-size: 15px;
   line-height: 1.5;
   color: #263238;
+  justify-content: flex-end;
 }
 
 h1 {
@@ -45,11 +47,18 @@ h1 {
 
 @media (max-width: 500px) {
   h1 {
-    font-size: 50px;
+    font-size: 60px;
   }
   .preamble {
     padding: 10px 10px 0 10px;
     font-size: 13px;
+  }
+}
+
+/* You prolly don't need this on mobile. */
+@media (max-width: 600px) {
+  .extra-help {
+    display: none !important;
   }
 }
 
@@ -62,12 +71,14 @@ h1 {
   justify-content: space-between;
 }
 
-.wrap {
+.wrap-end {
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 #settings {
   margin-left: 10px;
+  text-align: right;
 }
 
 #container, #colorsContainer {
