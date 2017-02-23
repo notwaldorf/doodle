@@ -45,6 +45,7 @@ h1 {
   text-align: center;
 }
 
+/* I'm using media queries like a hack, look away! */
 @media (max-width: 500px) {
   h1 {
     font-size: 60px;
@@ -52,6 +53,15 @@ h1 {
   .preamble {
     padding: 10px 10px 0 10px;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 50px;
+  }
+  .preamble input[type="range"] {
+    width: 60px;
   }
 }
 
@@ -117,7 +127,7 @@ h1 {
 .box {
   box-sizing: border-box;
   display: inline-block;
-  border: 1px solid white;
+  /*border: 1px solid white;*/
   background-color: #f9f9f9;
   transition: background-color ease-out;
   transition-duration: inherit;
