@@ -27,6 +27,7 @@ html, body {
   align-items: center;
   padding: 20px 20px 0 20px;
   line-height: 1.5;
+  color: #263238;
 }
 
 h1 {
@@ -146,7 +147,7 @@ input[type="range"] {
   border-radius: 2px;
   margin: 0 auto;
   vertical-align: middle;
-  width: 60px;
+  width: 100px;
 }
 input[type="range"]::-moz-range-track {
   height: 2px;
