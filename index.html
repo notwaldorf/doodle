@@ -60,7 +60,10 @@
     ]
     var activeColor = 0;
 
-    window.onresize = redrawBoard;
+    window.onresize = function() {
+      drawPreamble();
+      redrawBoard();
+    };
     window.onkeyup = dealWithKeyboardMash;
     decay.addEventListener('input', updateDecay);
     pixelSize.addEventListener('input', updatePixelSize);
@@ -86,6 +89,7 @@
        /* the 1px is for the border */
       var width = Math.floor((window.innerWidth) / (size + 1));
       var height = Math.floor((window.innerHeight - topPadding) / (size + 1));
+      size = size + 'px';  // yuuuup.
 
       // Draw a grid of pixels.
       container.innerHTML = '';
@@ -94,7 +98,7 @@
           var box = document.createElement('div');
           box.tabindex = 1;
           box.className = 'box black';
-          box.style.width = box.style.height = size + 'px';
+          box.style.width = box.style.height = size;
           container.appendChild(box);
         }
         // Eh why not.
@@ -105,9 +109,14 @@
 
     // Lay out the "available colours" container.
     function drawPreamble() {
+      var totalWidth = colorsContainer.getBoundingClientRect().width;
+      var boxWidth = totalWidth / COLORS.length + 'px';
+
+      colorsContainer.innerHTML = '';
       for (var i = 0; i < COLORS.length; i++) {
         var box = document.createElement('div');
         box.style.backgroundColor = COLORS[i].hex;
+        box.style.width = box.style.height = boxWidth;
         if (i == 0) {
           box.className = 'active';
         }
