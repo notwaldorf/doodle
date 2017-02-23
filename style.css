@@ -5,6 +5,15 @@ body {
   font-family: sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 /*
  * Basic copy styles
  */
@@ -64,11 +73,13 @@ h1 {
   transition: background-color ease-out;
   transition-duration: inherit;
   border-radius: 50%;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
 .box:hover {
   transition: background-color 0s ease-in;
   -webkit-user-select: none;
--webkit-touch-callout: none /*only to disable context menu on long press*/
+  -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
 
 .box.black:hover, .box.black:active          { background-color: #000000; }
