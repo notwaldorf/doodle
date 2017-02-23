@@ -68,6 +68,7 @@ h1 {
 #settings {
   margin-left: 10px;
 }
+
 #container, #colorsContainer {
   box-sizing: border-box;
   line-height: 0;
@@ -91,6 +92,12 @@ h1 {
 
 #container {
   transition-duration: 10s;
+  /* Is this real life */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 .box {
