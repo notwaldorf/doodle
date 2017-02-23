@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="preamble" style="text-align:center;">
-      Press <b>x</b> to reset the trace, <b>c</b> to cycle through colours.
-      If you hold the mouse down and move, you won't leave a trace.
+    <div id="preamble" class="preamble">
+      <h1>Chill.</h1>
+      <p>Press <b>X</b> to reset the trace, <b>C</b> to cycle through colours.<br>
+      If you hold the mouse down and move, you won't leave a trace.</p>
       <div id="colorsContainer"></div>
-      <br><br>
+
       <div>
         <span class="slider-title">Persistence</span>
         <input id="decay"
@@ -24,12 +25,32 @@
       </div>
       <br><br>
     </div>
+
     <div id="container"></div>
   </body>
 
   <script>
-    var colors = ['black', 'blue', 'teal', 'yellow', 'orange', 'pink'];
-    var colorsHex = ['black', '#0074D9', '#39CCCC', '#FFDC00', '#FF851B', '#E91E63'];
+    const COLORS = [
+      { name: 'black', hex: '#000000'},
+      { name: 'red', hex: '#f44336'},
+      { name: 'pink', hex: '#E91E63'},
+      { name: 'purple', hex: '#9C27B0'},
+      { name: 'deeppurple', hex: '#673AB7'},
+      { name: 'indigo', hex: '#3F51B5'},
+      { name: 'blue', hex: '#2196F3'},
+      { name: 'lightblue', hex: '#03A9F4'},
+      { name: 'cyan', hex: '#00BCD4'},
+      { name: 'teal', hex: '#009688'},
+      { name: 'green', hex: '#4CAF50'},
+      { name: 'lightgreen', hex: '#8BC34A'},
+      { name: 'lime', hex: '#CDDC39'},
+      { name: 'yellow', hex: '#FFEB3B'},
+      { name: 'amber', hex: '#FFC107'},
+      { name: 'orange', hex: '#FF9800'},
+      { name: 'deeporange', hex: '#FF5722'},
+      { name: 'brown', hex: '#795548'},
+      { name: 'grey', hex: '#9E9E9E'}
+    ]
     var activeColor = 0;
 
     window.onresize = redrawBoard;
@@ -74,9 +95,9 @@
 
     // Lay out the "available colours" container.
     function drawPreamble() {
-      for (var i = 0; i < colors.length; i++) {
+      for (var i = 0; i < COLORS.length; i++) {
         var box = document.createElement('div');
-        box.style.backgroundColor = colorsHex[i];
+        box.style.backgroundColor = COLORS[i].hex;
         if (i == 0) {
           box.className = 'active';
         }
@@ -97,12 +118,12 @@
 
       // Highight the next active colour.
       colorBoxes[activeColor].className = '';
-      activeColor = (activeColor === colors.length - 1) ? 0 : activeColor + 1;
+      activeColor = (activeColor === COLORS.length - 1) ? 0 : activeColor + 1;
       colorBoxes[activeColor].className = 'active';
 
       // Apply it to all the pixels.
       for (var i = 0; i < all.length; i++) {
-        all[i].className = 'box ' + colors[activeColor];
+        all[i].className = 'box ' + COLORS[activeColor].name;
       }
     }
 

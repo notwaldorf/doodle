@@ -1,7 +1,42 @@
 body {
-  background: #e2e2e2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  background: white;
   font-family: sans-serif;
 }
+
+/*
+ * Basic copy styles
+ */
+.preamble {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+h1 {
+  color: #E91E63;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.preamble b {
+  background: #E91E63;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 3px;
+}
+
+/*
+ * The preamble at the top.
+ */
 
 #container, #colorsContainer {
   box-sizing: border-box;
@@ -9,27 +44,32 @@ body {
   text-align: center;
 }
 
+#colorsContainer {
+  margin-bottom: 10px;
+}
+
 #colorsContainer div {
-  width: 30px;
-  height: 30px;
-  margin: 2px;
   display: inline-block;
   box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
 }
 
 #colorsContainer div.active {
-  border: 4px solid white;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+  transform: scale(1.6);
 }
-
 
 #container {
   transition-duration: 10s;
 }
+
 .box {
   box-sizing: border-box;
   display: inline-block;
-  border: 1px solid #e2e2e2;
-  background-color: white;
+  border: 1px solid white;
+  background-color: #f9f9f9;
   transition: background-color ease-out;
   transition-duration: inherit;
   border-radius: 50%;
@@ -37,57 +77,63 @@ body {
 .box:hover {
   transition: background-color 0s ease-in;
 }
-.box.black:hover {
-  background-color: black;
-}
-.box.blue:hover {
-  background-color: #0074D9;
-}
-.box.teal:hover {
-  background-color: #39CCCC;
-}
-.box.yellow:hover {
-  background-color: #FFDC00;
-}
-.box.orange:hover {
-  background-color: #FF851B;
-}
-.box.pink:hover {
-  background-color: #E91E63;
-}
+
+.box.black:hover          { background-color: #000000; }
+.box.red:hover            { background-color: #f44336; }
+.box.pink:hover           { background-color: #E91E63; }
+.box.purple:hover         { background-color: #9C27B0; }
+.box.deeppurple:hover     { background-color: #673AB7; }
+.box.indigo:hover         { background-color: #3F51B5; }
+.box.blue:hover           { background-color: #2196F3; }
+.box.lightblue:hover      { background-color: #03A9F4; }
+.box.cyan:hover           { background-color: #00BCD4; }
+.box.teal:hover           { background-color: #009688; }
+.box.green:hover          { background-color: #4CAF50; }
+.box.lightgreen:hover     { background-color: #8BC34A; }
+.box.lime:hover           { background-color: #CDDC39; }
+.box.yellow:hover         { background-color: #FFEB3B; }
+.box.amber:hover          { background-color: #FFC107; }
+.box.orange:hover         { background-color: #FF9800; }
+.box.deeporange:hover     { background-color: #FF5722; }
+.box.brown:hover          { background-color: #795548; }
+.box.grey:hover           { background-color: #9E9E9E; }
 
 /* If there's anything shittier than styling input type=ranges, I want
  * to see it. */
 input[type="range"] {
   -webkit-appearance: none;
-  background-color: white;
-  height: 5px;
-  border-radius: 5px;
+  background-color: #E91E63;
+  height: 2px;
+  border-radius: 2px;
   margin: 0 auto;
 }
 input[type="range"]::-moz-range-track {
-  background-color: white;
+  height: 2px;
+  background-color: #E91E63;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #E91E63;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 input[type="range"]::-moz-range-thumb {
   background-color: #E91E63;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   border: 1px solid transparent;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 input[type="range"]::-webkit-slider-thumb:active {
-  transform: scale(1.6);
+  transform: scale(1.4);
+}
+input[type="range"]::-moz-range-thumb:active {
+  transform: scale(1.4);
 }
 .slider-value {
   display: inline-block; /* or else you can't size it */
