@@ -5,8 +5,7 @@ body {
   font-family: sans-serif;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -14,31 +13,61 @@ body {
   padding: 0;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 /*
  * Basic copy styles
  */
 .preamble {
   max-width: 600px;
-  text-align: center;
   margin: 0 auto;
   padding-top: 10px;
-  font-size: 15px;
+  align-items: center;
+  padding: 20px 20px 0 20px;
   line-height: 1.5;
 }
 
 h1 {
+  flex-grow: 1;
   color: #E91E63;
-  font-size: 70px;
-  line-height: 50px;
   font-family: 'Pacifico', cursive;
+  font-size: 70px;
+  line-height: 1;
   padding: 0;
   margin: 0;
   font-weight: 100;
+  vertical-align: middle;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+  }
+  .preamble {
+    padding: 10px 10px 0 10px;
+    font-size: 13px;
+  }
 }
 
 /*
  * The preamble at the top.
  */
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+#settings {
+  margin-left: 10px;
+}
 #container, #colorsContainer {
   box-sizing: border-box;
   line-height: 0;
@@ -111,6 +140,7 @@ input[type="range"] {
   border-radius: 2px;
   margin: 0 auto;
   vertical-align: middle;
+  width: 60px;
 }
 input[type="range"]::-moz-range-track {
   height: 2px;
@@ -140,7 +170,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 input[type="range"]::-moz-range-thumb:active {
   transform: scale(1.4);
 }
-.slider-value {
+.slider-value, .slider-title {
   display: inline-block;
   min-width: 35px;
 }

@@ -10,24 +10,28 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
   <body>
-    <div id="preamble" class="preamble">
+    <div id="preamble" class="preamble horizontal">
       <h1>chill.</h1>
 
       <div id="settings">
-        <p>Press <b>X</b> to reset the trace, <b>C</b> to cycle through colours,
-          <b>V</b> to toggle the settings.<br>
-        <p>
-          <span>decay</span>
-          <input id="decay" type="range" min="1" max="30" step="1" value="10">
-          <span id="decayDisplay" class="slider-value">10s</span>
+        <b>X</b> resets, <b>C</b> changes the colour
+        <!-- <b>V</b> toggles the settings. -->
 
-          <span style="margin-left: 20px">size</span>
-          <input id="pixelSize" type="range" min="11" max="50" step="1" value="15">
-          <span id="pixelSizeDisplay" class="slider-value">15px</span>
-        </p>
+        <div class="horizontal wrap">
+          <div>
+            <span class="slider-title">decay</span>
+            <input id="decay" type="range" min="1" max="30" step="1" value="10">
+            <span id="decayDisplay" class="slider-value">10s</span>
+          </div>
+          <div>
+            <span class="slider-title">size</span>
+            <input id="pixelSize" type="range" min="11" max="50" step="1" value="15">
+            <span id="pixelSizeDisplay" class="slider-value">15px</span>
+          </div>
+        </div>
       </div>
-      <div id="colorsContainer"></div>
     </div>
+    <div id="colorsContainer"></div>
 
     <div id="container"></div>
   </body>
