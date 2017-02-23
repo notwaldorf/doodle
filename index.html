@@ -7,25 +7,26 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps&text=chil" rel="stylesheet">
   </head>
   <body>
     <div id="preamble" class="preamble">
-      <h1>Chill.</h1>
-      <p>Press <b>X</b> to reset the trace, <b>C</b> to cycle through colours.<br>
-      <div id="colorsContainer"></div>
+      <h1>chill.</h1>
 
-      <div>
-        <span class="slider-title">Persistence</span>
-        <input id="decay"
-            type="range" min="1" max="30" step="1" value="10">
-        <span id="decayDisplay" class="slider-value">10s</span>
+      <div id="settings">
+        <p>Press <b>X</b> to reset the trace, <b>C</b> to cycle through colours,
+          <b>H</b> to toggle the settings.<br>
+        <p>
+          <span>decay</span>
+          <input id="decay" type="range" min="1" max="30" step="1" value="10">
+          <span id="decayDisplay" class="slider-value">10s</span>
 
-        <span class="slider-title">Pixel size</span>
-        <input id="pixelSize"
-            type="range" min="11" max="50" step="1" value="15">
-        <span id="pixelSizeDisplay" class="slider-value">15px</span>
+          <span style="margin-left: 20px">size</span>
+          <input id="pixelSize" type="range" min="11" max="50" step="1" value="15">
+          <span id="pixelSizeDisplay" class="slider-value">15px</span>
+        </p>
       </div>
-      <br><br>
+      <div id="colorsContainer"></div>
     </div>
 
     <div id="container"></div>
@@ -62,7 +63,6 @@
 
     drawPreamble();
     redrawBoard();
-    focusBoard();
 
     function dealWithKeyboardMash(e) {
       var key = e.keyCode ? e.keyCode : e.which;
@@ -70,6 +70,8 @@
         resetTraces();
       } else if (key == 67) {  // c
         cycleColour();
+      } else if (key == 72) {  // h
+        toggleSettings();
       }
     }
 
@@ -94,6 +96,7 @@
         // Eh why not.
         container.appendChild(document.createElement('br'));
       }
+      focusBoard();
     }
 
     // Lay out the "available colours" container.
@@ -128,6 +131,11 @@
       for (var i = 0; i < all.length; i++) {
         all[i].className = 'box ' + COLORS[activeColor].name;
       }
+    }
+
+    function toggleSettings() {
+      settings.hidden = !settings.hidden;
+      redrawBoard();
     }
 
     function focusBoard() {

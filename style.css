@@ -13,31 +13,22 @@ body {
   text-align: center;
   margin: 0 auto;
   padding-top: 10px;
-}
-
-h1 {
-  color: #E91E63;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 20px;
-}
-
-p {
   font-size: 15px;
   line-height: 1.5;
 }
 
-.preamble b {
-  background: #E91E63;
-  color: white;
-  padding: 4px 6px;
-  border-radius: 3px;
+h1 {
+  color: #E91E63;
+  font-size: 90px;
+  line-height: 50px;
+  font-family: 'Bilbo Swash Caps', cursive;
+  padding: 0;
+  margin: 0;
 }
 
 /*
  * The preamble at the top.
  */
-
 #container, #colorsContainer {
   box-sizing: border-box;
   line-height: 0;
@@ -45,7 +36,7 @@ p {
 }
 
 #colorsContainer {
-  margin-bottom: 30px;
+  margin: 14px 0;
 }
 
 #colorsContainer div {
@@ -53,7 +44,6 @@ p {
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  margin: 2px;
 }
 
 #colorsContainer div.active {
@@ -108,6 +98,7 @@ input[type="range"] {
   height: 2px;
   border-radius: 2px;
   margin: 0 auto;
+  vertical-align: middle;
 }
 input[type="range"]::-moz-range-track {
   height: 2px;
@@ -138,26 +129,6 @@ input[type="range"]::-moz-range-thumb:active {
   transform: scale(1.4);
 }
 .slider-value {
-  display: inline-block; /* or else you can't size it */
-  position: relative;
-  color: white;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 3px;
-  background: #E91E63;
-  padding: 5px 10px;
-  margin-left: 8px;
-  min-width: 30px;
-}
-/* Pointy arrow bit */
-.slider-value:after {
-  position: absolute;
-  top: 8px;
-  left: -7px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-right: 7px solid #E91E63;
-  border-bottom: 7px solid transparent;
-  content: '';
+  display: inline-block;
+  min-width: 35px;
 }
