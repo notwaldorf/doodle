@@ -130,25 +130,25 @@ h1 {
   -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
 
-.box.black:hover, .box.black:active          { background-color: #000000; }
-.box.red:hover, .box.black:active            { background-color: #f44336; }
-.box.pink:hover, .box.black:active           { background-color: #E91E63; }
-.box.purple:hover, .box.black:active         { background-color: #9C27B0; }
-.box.deeppurple:hover, .box.black:active     { background-color: #673AB7; }
-.box.indigo:hover, .box.black:active         { background-color: #3F51B5; }
-.box.blue:hover, .box.black:active           { background-color: #2196F3; }
-.box.lightblue:hover, .box.black:active      { background-color: #03A9F4; }
-.box.cyan:hover, .box.black:active           { background-color: #00BCD4; }
-.box.teal:hover, .box.black:active           { background-color: #009688; }
-.box.green:hover, .box.black:active          { background-color: #4CAF50; }
-.box.lightgreen:hover, .box.black:active     { background-color: #8BC34A; }
-.box.lime:hover, .box.black:active           { background-color: #CDDC39; }
-.box.yellow:hover, .box.black:active         { background-color: #FFEB3B; }
-.box.amber:hover, .box.black:active          { background-color: #FFC107; }
-.box.orange:hover ,.box.black:active         { background-color: #FF9800; }
-.box.deeporange:hover, .box.black:active     { background-color: #FF5722; }
-.box.brown:hover, .box.black:active          { background-color: #795548; }
-.box.grey:hover, .box.black:active           { background-color: #9E9E9E; }
+.box.black:hover, .box.black:focus          { background-color: #000000; }
+.box.red:hover, .box.black:focus            { background-color: #f44336; }
+.box.pink:hover, .box.black:focus           { background-color: #E91E63; }
+.box.purple:hover, .box.black:focus         { background-color: #9C27B0; }
+.box.deeppurple:hover, .box.black:focus     { background-color: #673AB7; }
+.box.indigo:hover, .box.black:focus         { background-color: #3F51B5; }
+.box.blue:hover, .box.black:focus           { background-color: #2196F3; }
+.box.lightblue:hover, .box.black:focus      { background-color: #03A9F4; }
+.box.cyan:hover, .box.black:focus           { background-color: #00BCD4; }
+.box.teal:hover, .box.black:focus           { background-color: #009688; }
+.box.green:hover, .box.black:focus          { background-color: #4CAF50; }
+.box.lightgreen:hover, .box.black:focus     { background-color: #8BC34A; }
+.box.lime:hover, .box.black:focus           { background-color: #CDDC39; }
+.box.yellow:hover, .box.black:focus         { background-color: #FFEB3B; }
+.box.amber:hover, .box.black:focus          { background-color: #FFC107; }
+.box.orange:hover ,.box.black:focus         { background-color: #FF9800; }
+.box.deeporange:hover, .box.black:focus     { background-color: #FF5722; }
+.box.brown:hover, .box.black:focus          { background-color: #795548; }
+.box.grey:hover, .box.black:focus           { background-color: #9E9E9E; }
 
 /* If there's anything shittier than styling input type=ranges, I want
  * to see it. */
@@ -183,10 +183,10 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-input[type="range"]::-webkit-slider-thumb:active {
+input[type="range"]::-webkit-slider-thumb:focus {
   transform: scale(1.4);
 }
-input[type="range"]::-moz-range-thumb:active {
+input[type="range"]::-moz-range-thumb:focus {
   transform: scale(1.4);
 }
 .slider-value, .slider-title {
