@@ -19,7 +19,7 @@
 
         <span class="slider-title">Pixel size</span>
         <input id="pixelSize"
-            type="range" min="1" max="50" step="1" value="15">
+            type="range" min="11" max="50" step="1" value="15">
         <span id="pixelSizeDisplay" class="slider-value">15px</span>
       </div>
       <br><br>
@@ -51,11 +51,12 @@
     }
 
     function redrawBoard() {
-      var size = 16; //pixelSize.value + 1;
+      var size = parseInt(pixelSize.value);
       var preambleSize = preamble.getBoundingClientRect()
       var topPadding = preambleSize.height + preambleSize.top;
-      var width = Math.floor((window.innerWidth) / size);
-      var height = Math.floor((window.innerHeight - topPadding) / size);
+       /* the 1px is for the border */
+      var width = Math.floor((window.innerWidth) / (size + 1));
+      var height = Math.floor((window.innerHeight - topPadding) / (size + 1));
 
       // Draw a grid of pixels.
       container.innerHTML = '';
@@ -63,6 +64,7 @@
         for (var j = 0; j < width; j++) {
           var box = document.createElement('div');
           box.className = 'box black';
+          box.style.width = box.style.height = size + 'px';
           container.appendChild(box);
         }
         // Eh why not.
@@ -115,9 +117,9 @@
     }
 
     function updatePixelSize() {
-      // decayDisplay.textContent = decay.value + 's';
-      // container.style.transitionDuration = decay.value + 's';
-      // focusBoard();
+      redrawBoard();
+      focusBoard();
+      pixelSizeDisplay.textContent = pixelSize.value + 'px';
     }
   </script>
 

@@ -27,8 +27,6 @@ body {
 }
 .box {
   box-sizing: border-box;
-  width: 15px;
-  height: 15px;
   display: inline-block;
   border: 1px solid #e2e2e2;
   background-color: white;
