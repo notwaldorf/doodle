@@ -52,6 +52,7 @@
   </body>
 
   <script>
+    const STORAGE_KEY = '__✨pixel_board✨__'
     const COLORS = [
       { name: 'black', hex: '#000000'},
       { name: 'red', hex: '#f44336'},
@@ -74,6 +75,19 @@
       { name: 'grey', hex: '#9E9E9E'}
     ]
     var activeColor = 0;
+
+    // Are there settings to load? Else put the defaults in.
+    if (localStorage[STORAGE_KEY]) {
+      var options = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      decay.value = options.decay;
+      pixelSize.value = options.pixelSize;
+      cycle.value = options.cycle;
+      updateDecay();
+      updatePixelSize();
+      updateCycle();
+    } else {
+      updateLocalStorage();
+    }
 
     window.onresize = function() {
       drawPreamble();
@@ -205,21 +219,33 @@
       decayDisplay.textContent = decay.value + 's';
       container.style.transitionDuration = decay.value + 's';
       focusBoard();
+      updateLocalStorage();
     }
 
     function updatePixelSize() {
       redrawBoard();
       focusBoard();
+      updateLocalStorage();
       pixelSizeDisplay.textContent = pixelSize.value + 'px';
     }
 
     function updateCycle() {
+      updateLocalStorage();
       cycleDisplay.textContent = cycle.value + 's';
       if (cycle.value === 0) {
         stop();
       } else if (requestId == -1) {
         start();
       }
+    }
+
+    function updateLocalStorage() {
+      var options = {
+          'decay': decay.value,
+          'pixelSize': pixelSize.value,
+          'cycle': cycle.value
+        };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
     }
 
     var requestId = -1;
@@ -243,6 +269,7 @@
     	  window.cancelAnimationFrame(requestId);
     	requestId = -1;
     }
+
 
   </script>
 
