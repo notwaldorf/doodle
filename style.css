@@ -95,6 +95,7 @@ a:hover {
 
 #container {
   transition-duration: 10s;
+  -webkit-transition-duration: 10s;
   /* Is this real life */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -108,12 +109,14 @@ a:hover {
   display: inline-block;
   background-color: #f9f9f9;
   transition: background-color ease-out;
-  transition-duration: inherit;
+  -webkit-transition: background-color ease-out;
+  -webkit-transition-duration: inherit;
   -webkit-user-select: none;
   -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
 .box:hover, .box.active {
   transition: background-color 0s ease-in;
+  -webkit-transition: background-color 0s ease-in;
   -webkit-user-select: none;
   -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
