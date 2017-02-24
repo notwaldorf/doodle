@@ -80,8 +80,8 @@ function redrawBoard() {
   var size = parseInt(pixelSize.value);
 
   var offset =
-      colorsContainer.getBoundingClientRect().top +
-      colorsContainer.getBoundingClientRect().height;
+      topSection.getBoundingClientRect().top +
+      topSection.getBoundingClientRect().height;
 
    /* the 1px is for the border */
   var width = Math.floor((window.innerWidth) / (size + 1));
@@ -106,13 +106,8 @@ function redrawBoard() {
 
 // Lay out the "available colours" container.
 function drawPreamble() {
-  var totalWidth = window.innerWidth;
-  // the +2 is because the buttons are the same size
-  var boxWidth = Math.floor(totalWidth / (COLORS.length + 2)) + 'px';
-
-  var buttons = document.querySelectorAll('button');
-  buttons[0].style.height = buttons[0].style.width =
-      buttons[1].style.height = buttons[1].style.width = boxWidth;
+  var totalWidth = window.innerWidth - buttonsContainer.getBoundingClientRect().width;
+  var boxWidth = Math.floor(totalWidth / (COLORS.length)) + 'px';
 
   colorsContainer.innerHTML = '';
   for (var i = 0; i < COLORS.length; i++) {
