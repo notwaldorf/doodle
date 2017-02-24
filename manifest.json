@@ -1,8 +1,8 @@
 {
   "name": "doodle",
   "short_name": "doodle",
-  "start_url": "/?homescreen=1",
-  "display": "standalone",
+  "start_url": "index.html",
+  "display": "fullscreen",
   "theme_color": "#E91E63",
   "background_color": "#E91E63",
   "icons": [
