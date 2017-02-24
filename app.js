@@ -63,8 +63,7 @@ container.addEventListener('touchmove', function(event) {
   }
 });
 
-drawPreamble();
-redrawBoard();
+window.onresize();
 
 function dealWithKeyboardMash(e) {
   var key = e.keyCode ? e.keyCode : e.which;
@@ -107,7 +106,7 @@ function redrawBoard() {
 
 // Lay out the "available colours" container.
 function drawPreamble() {
-  var totalWidth = colorsContainer.getBoundingClientRect().width;
+  var totalWidth = window.innerWidth;
   // the +2 is because the buttons are the same size
   var boxWidth = Math.floor(totalWidth / (COLORS.length + 2)) + 'px';
 
