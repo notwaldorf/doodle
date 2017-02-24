@@ -27,21 +27,17 @@ html, body {
   margin: 0 auto;
   padding-top: 10px;
   align-items: center;
-  padding: 20px 20px 0 20px;
   font-size: 15px;
   line-height: 1.5;
   color: #263238;
 }
 
-h1 {
+.app-title {
   color: #E91E63;
   font-family: 'Pacifico', cursive;
-  font-size: 70px;
-  line-height: 1;
-  padding: 0;
-  margin: 0;
   font-weight: 100;
-  text-align: center;
+  font-size: 24px;
+  margin: 0 10px;
 }
 
 @media (max-width: 350px) {
@@ -82,14 +78,13 @@ a:hover {
 }
 
 #colorsContainer {
-  max-width: 600px;
-  margin: 14px auto;
+  flex: auto;
+  display: inline-block;
 }
 
 #colorsContainer div {
   display: inline-block;
   box-sizing: border-box;
-  /*border-radius: 50%;*/
   cursor: pointer;
 }
 
@@ -111,11 +106,9 @@ a:hover {
 .box {
   box-sizing: border-box;
   display: inline-block;
-  /*border: 1px solid white;*/
   background-color: #f9f9f9;
   transition: background-color ease-out;
   transition-duration: inherit;
-  /*border-radius: 50%;*/
   -webkit-user-select: none;
   -webkit-touch-callout: none /*only to disable context menu on long press*/
 }
@@ -202,9 +195,9 @@ button {
   fill: #E91E63;
   stroke: transparent;
   box-sizing: border-box;
-  padding: 4px;
-  height: 30px;
-  width: 30px;
   vertical-align: super;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 1;
 }
