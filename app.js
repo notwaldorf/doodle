@@ -50,6 +50,7 @@ colorsContainer.addEventListener('click', function(event) {
 
 // Ok, so. On mobile we simulate hover.
 container.addEventListener('touchmove', function(event) {
+  event.preventDefault();
   var touch = event.touches[0];
   var target = document.elementFromPoint(touch.clientX, touch.clientY);
 

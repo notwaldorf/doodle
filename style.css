@@ -109,6 +109,7 @@ a:hover {
             user-select: none;
   line-height: 0;
   background-color: #f9f9f9;
+  text-align: center;
 }
 
 .box {
