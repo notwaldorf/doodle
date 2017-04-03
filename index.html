@@ -28,7 +28,7 @@
 
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/pixel-board/sw.js', {scope: '/pixel-board/'}).then(_ => {
+        navigator.serviceWorker.register('/doodle/sw.js', {scope: '/doodle/'}).then(_ => {
           console.log('service worker is cool 🐳');
         }).catch(e => {
           console.error('service worker is not so cool 🔥', e);
@@ -57,7 +57,7 @@
         disappears. No-pressure doodling.<br><br>
         My favourite is to turn on the colour loop and basically play snake without dying.<br>
         Made with 👾 by <a href="https://twitter.com/notwaldorf">Monica</a>. 👀
-        this on <a href="https://github.com/notwaldorf/pixel-board">GitHub</a>.
+        this on <a href="https://github.com/notwaldorf/doodle">GitHub</a>.
       </div>
       <div id="settings" class="preamble-text" hidden>
         Press: <b>X</b> to reset the doodle, <b>C</b> to change the active colour.

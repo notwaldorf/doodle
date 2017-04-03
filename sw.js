@@ -4,12 +4,12 @@ var APP_PREFIX = 'DOODLE_';     // Identifier for this app (this needs to be con
 var VERSION = '0.0.7';                    // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION;
 var URLS = [                            // Add URL you want to cache in this list.
-  '/pixel-board/',
-  '/pixel-board/index.html',
-  '/pixel-board/style.css',
-  '/pixel-board/app.js',
-  '/pixel-board/manifest.json',
-  '/pixel-board/images/favicon.ico',
+  '/doodle/',
+  '/doodle/index.html',
+  '/doodle/style.css',
+  '/doodle/app.js',
+  '/doodle/manifest.json',
+  '/doodle/images/favicon.ico',
 ]
 
 // Respond with cached resources
