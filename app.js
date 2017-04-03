@@ -40,6 +40,10 @@ window.onresize = function() {
   redrawBoard();
 };
 window.onkeyup = dealWithKeyboardMash;
+
+buttonSettings.addEventListener('click', toggleSettings);
+buttonAbout.addEventListener('click', toggleWhat);
+
 decay.addEventListener('input', updateDecay);
 pixelSize.addEventListener('input', updatePixelSize);
 cycle.addEventListener('input', updateCycle);
