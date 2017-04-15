@@ -99,7 +99,7 @@ function redrawBoard() {
     for (var j = 0; j < width; j++) {
       var box = document.createElement('div');
       box.tabindex = 1;
-      box.className = 'box black';
+      box.className = 'box ' + COLORS[activeColor].name;
       box.style.width = box.style.height = size;
       container.appendChild(box);
     }
@@ -174,7 +174,6 @@ function updateDecay() {
 
 function updatePixelSize() {
   redrawBoard();
-  focusBoard();
   updateLocalStorage();
   pixelSizeDisplay.textContent = pixelSize.value + 'px';
 }
